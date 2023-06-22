@@ -37,7 +37,7 @@ jobs:
 
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} -v '
             # 最新のリポジトリを取得し、既存のポート番号4567のプロセスを終了し、デタッチモードでアプリを起動する
             cd /home/ec2-user/git-hub-actions-practice &&
             git fetch --all &&
@@ -46,4 +46,3 @@ jobs:
             lsof -t -i:4567 | xargs --no-run-if-empty kill -9 &&
             screen -dm bundle exec ruby app.rb -o 0.0.0.0
             '
-            
