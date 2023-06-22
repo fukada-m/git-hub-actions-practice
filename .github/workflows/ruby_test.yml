@@ -18,14 +18,12 @@ jobs:
       uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
       with:
         ruby-version: '3.2'
-    - name: Move dir
-      run: cd ruby_ci
 
     - name: Install dependencies
-      run: bundle install
+      run: cd ruby_ci && bundle install
 
     - name: Run tests
-      run: bundle exec rspec
+      run: cd ruby_ci && bundle exec rspec
 
     - name: Run rubocop
-      run: bundle exec rubocop
+      run: cd ruby_ci && bundle exec rubocop
