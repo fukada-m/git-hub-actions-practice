@@ -20,10 +20,10 @@ jobs:
         ruby-version: '3.2'
 
     - name: Install dependencies
-      run: cd ruby_ci && bundle install
+      run: cd ruby-ci && bundle install
 
     - name: Run tests
-      run: cd ruby_ci && bundle exec rspec
+      run: cd ruby-ci && bundle exec rspec
 
     - name: Run rubocop
-      run: cd ruby_ci && bundle exec rubocop
+      run: cd ruby-ci && bundle exec rubocop
